@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include "simulasyon.hpp"
 
 int main()
 {   Color KAFAMAGORE = {34,16,41,255};
@@ -12,6 +13,10 @@ int main()
     InitWindow(EKRAN_GENISLIGI,EKRAN_YUKSEKLIGI,"GAME OF LIFE");
     SetTargetFPS(FPS);
 
+    /*simulasyon objesi olusturup test edelim*/
+    Simulasyon simulasyon(EKRAN_GENISLIGI,EKRAN_YUKSEKLIGI,HUCRE_BOYUTU);
+    simulasyon.DegerEkle(3,4,1);
+
     /*simulasyon dongusu*/
 
     //saniyede 12 defa tekrar
@@ -24,6 +29,7 @@ int main()
         // Çizim
         BeginDrawing();
         ClearBackground(KAFAMAGORE);
+        simulasyon.Cizim();
         EndDrawing();
     }
     CloseWindow();
