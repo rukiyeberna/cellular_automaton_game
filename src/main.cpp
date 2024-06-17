@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include <iostream>
 #include "simulasyon.hpp"
 
 int main()
@@ -16,6 +17,11 @@ int main()
     /*simulasyon objesi olusturup test edelim*/
     Simulasyon simulasyon(EKRAN_GENISLIGI,EKRAN_YUKSEKLIGI,HUCRE_BOYUTU);
     simulasyon.DegerEkle(3,4,1);
+    simulasyon.DegerEkle(3,5,1);
+    simulasyon.DegerEkle(4,5,1);
+    simulasyon.DegerEkle(2,5,1);
+
+    std::cout << simulasyon.CanliKomsularimiSay(3,4) <<std::endl;
 
     /*simulasyon dongusu*/
 

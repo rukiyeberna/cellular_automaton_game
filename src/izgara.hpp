@@ -21,6 +21,8 @@ class Izgara
         :   satirlar(yukseklik/hucreBoyutu), sutunlar(genislik/hucreBoyutu), hucreBoyutu(hucreBoyutu), hucreler(satirlar,std ::vector<int>(sutunlar,0)) {};
         void Cizim();
         void DegerEkle(int satir,int sutun,int deger);
+        int  DegerAl(int satir,int sutun);/*komsu hucreler icin gerekli*/
+        bool IzgaraIcindeMi(int satir, int sutun);
     private:
         int satirlar;
         int sutunlar;

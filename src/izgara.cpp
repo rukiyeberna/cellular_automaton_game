@@ -16,8 +16,26 @@ void Izgara::Cizim()
 
 void Izgara::DegerEkle(int satir, int sutun, int deger)
 {
-    if(satir >=0 &&  satir< satirlar && sutun >= 0 && sutun< sutunlar )
+    if( IzgaraIcindeMi(satir,sutun) )
     {
         hucreler[satir][sutun] = deger;
     }
+}
+
+int Izgara::DegerAl(int satir, int sutun)
+{
+    if( IzgaraIcindeMi(satir,sutun))
+    {
+        return hucreler[satir][sutun];
+    }
+    return 0;
+}
+
+bool Izgara::IzgaraIcindeMi(int satir, int sutun)
+{
+    if(satir >=0 &&  satir< satirlar && sutun >= 0 && sutun< sutunlar )
+    {
+        return true;
+    }
+    return false;
 }

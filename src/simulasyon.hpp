@@ -15,6 +15,7 @@ class Simulasyon
         };
         void Cizim();
         void DegerEkle(int satir, int sutun, int deger);
+        int CanliKomsularimiSay(int satir,int sutun);
     private:
         /*attribute ekleyelim*/
         Izgara izgara;
