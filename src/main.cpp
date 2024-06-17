@@ -5,9 +5,9 @@
 int main()
 {   Color KAFAMAGORE = {34,16,41,255};
 
-    const int EKRAN_GENISLIGI = 750;
-    const int EKRAN_YUKSEKLIGI = 750;
-    const int HUCRE_BOYUTU = 25;
+    const int EKRAN_GENISLIGI = 1200;
+    const int EKRAN_YUKSEKLIGI = 800;
+    const int HUCRE_BOYUTU = 4;
     
     int FPS =12;
 
@@ -36,6 +36,7 @@ int main()
         // Olay gerçekleştirme
 
         // Durum  Güncelleme
+        simulasyon.Güncelle();
 
         // Çizim
         BeginDrawing();

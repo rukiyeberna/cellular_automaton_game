@@ -39,3 +39,16 @@ bool Izgara::IzgaraIcindeMi(int satir, int sutun)
     }
     return false;
 }
+
+void Izgara::RastgeleDoldur()
+{
+    for(int satir = 0; satir<satirlar;satir ++)
+    {
+        for(int sutun =0; sutun<sutunlar;sutun ++)
+        {
+            /*rayllib fonk kullandik*/
+            int rastgeleDeger= GetRandomValue(0,4);
+            hucreler[satir][sutun]= (rastgeleDeger ==4) ? 1 : 0 ;
+        }
+    }
+}

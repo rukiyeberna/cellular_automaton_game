@@ -12,7 +12,8 @@ class Simulasyon
         : izgara(genislik,yukseklik,hucreBoyutu),
           kopyalanmisIzgara(genislik,yukseklik,hucreBoyutu)  
         {
-
+            /*constructor ekleyelim*/
+            izgara.RastgeleDoldur();
         };
         void Cizim();
         void DegerEkle(int satir, int sutun, int deger);

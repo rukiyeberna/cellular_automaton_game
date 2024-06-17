@@ -25,6 +25,7 @@ class Izgara
         bool IzgaraIcindeMi(int satir, int sutun);
         int  SatirlariAl(){return satirlar;}
         int  SutunlariAl(){return sutunlar;}
+        void RastgeleDoldur();
     private:
         int satirlar;
         int sutunlar;
