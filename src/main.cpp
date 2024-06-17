@@ -16,12 +16,23 @@ int main()
 
     /*simulasyon objesi olusturup test edelim*/
     Simulasyon simulasyon(EKRAN_GENISLIGI,EKRAN_YUKSEKLIGI,HUCRE_BOYUTU);
-    simulasyon.DegerEkle(3,4,1);
-    simulasyon.DegerEkle(3,5,1);
-    simulasyon.DegerEkle(4,5,1);
-    simulasyon.DegerEkle(2,5,1);
 
-    std::cout << simulasyon.CanliKomsularimiSay(3,4) <<std::endl;
+    simulasyon.DegerEkle(5,29,1);/*uc bir hücreyi aldim*/
+    simulasyon.DegerEkle(6,0,1);/*uc bir hücreyi aldim*/
+    simulasyon.DegerEkle(5,0,1);/*uc bir hücreyi aldim*/
+    simulasyon.DegerEkle(4,0,1);/*uc bir hücreyi aldim*/
+
+
+    /*
+      komsularim sinirda ise ne olur peki, bakalim
+      en ucta oldugu icin yeni komsularimi tespit ederken ortaya cikan bu problemi cözmek icin farkli bir cok yol var,
+      Ben toroidal grid kullanacagim. Toroidal gridde, kenardan çıkan bir hücre karşı kenardan tekrar girer.
+      Bu sayede, kenar problemlerini ortadan kaldırabiliriz ve hücreler sonsuz bir düzlemdeymiş gibi davranabilir.
+
+      izgara ya tanıtmak icin moduler aritmetikten yararlanalim
+    */
+
+    std::cout << simulasyon.CanliKomsularimiSay(5,29) <<std::endl;
 
     /*simulasyon dongusu*/
 

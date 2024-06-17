@@ -23,6 +23,8 @@ class Izgara
         void DegerEkle(int satir,int sutun,int deger);
         int  DegerAl(int satir,int sutun);/*komsu hucreler icin gerekli*/
         bool IzgaraIcindeMi(int satir, int sutun);
+        int  SatirlariAl(){return satirlar;}
+        int  SutunlariAl(){return sutunlar;}
     private:
         int satirlar;
         int sutunlar;

@@ -33,8 +33,19 @@ int Simulasyon::CanliKomsularimiSay(int satir, int sutun)
 
     for(const auto& konum : komsularinKonumlari)
     { 
-        int komsuSatiri = satir + konum.first;
-        int komsuSutun = sutun + konum.second;
+        /*
+        modüler aritmetikten yararlanalim
+
+        [5][29] + {0,1} = [5][0]
+
+        yenisatir =(5+0+30)%30 = 5
+        yenisutun = (29+1+30)%30 =0
+
+        yenisatir = (satir+konum+totalsatirlar)% totalsatirlar,
+         bu islemle toroidal olan düzlemimizde başta belirecek olan hücreleri tespit edebiiriz
+        */
+        int komsuSatiri = (satir + konum.first + izgara.SatirlariAl()) % izgara.SatirlariAl();
+        int komsuSutun = (sutun + konum.second + izgara.SutunlariAl()) % izgara.SutunlariAl();
         CanliKomsular += izgara.DegerAl(komsuSatiri,komsuSutun);
     }
     return CanliKomsular;
