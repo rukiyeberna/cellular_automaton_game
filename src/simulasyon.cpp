@@ -15,7 +15,7 @@ void Simulasyon::DegerEkle(int satir, int sutun, int deger)
 
 int Simulasyon::CanliKomsularimiSay(int satir, int sutun)
 {
-    int CanliKomsular = 0;
+    int canliKomsular = 0;
     /*0-based matrisde*/
     /*8 komsu hücrenin bize göre konumlari baz alinarak olusturulan struct */
     std::vector<std::pair<int,int>> komsularinKonumlari =
@@ -46,7 +46,49 @@ int Simulasyon::CanliKomsularimiSay(int satir, int sutun)
         */
         int komsuSatiri = (satir + konum.first + izgara.SatirlariAl()) % izgara.SatirlariAl();
         int komsuSutun = (sutun + konum.second + izgara.SutunlariAl()) % izgara.SutunlariAl();
-        CanliKomsular += izgara.DegerAl(komsuSatiri,komsuSutun);
+        canliKomsular += izgara.DegerAl(komsuSatiri,komsuSutun);
     }
-    return CanliKomsular;
+    return canliKomsular;
+}
+
+/*oyunun mantigini iceren fonksiyon*/
+void Simulasyon::Güncelle()
+{
+    /*oyun izgarasindaki her bir hucreyi kontrol edelim, nested loop gerekecek*/
+    for(int satir =0; satir< izgara.SatirlariAl();satir ++)
+    {
+        for(int sutun =0; sutun<izgara.SutunlariAl();sutun ++)
+        {
+            int canliKomsular = CanliKomsularimiSay(satir,sutun);
+            int deger = izgara.DegerAl(satir,sutun);
+
+            /*kurallari implemente edelim*/
+            if(deger == 1)
+            {
+                /*olum gerceklesme durumu*/
+                if(canliKomsular>3 || canliKomsular<2)
+                {
+                    kopyalanmisIzgara.DegerEkle(satir,sutun,0);
+                }
+                /*else kismi ekledik cunku her bir hucre yenilenmeli*/
+                else
+                {
+                    kopyalanmisIzgara.DegerEkle(satir,sutun,1);
+                }
+            }
+            else
+            {
+                if(canliKomsular ==3)
+                {
+                    kopyalanmisIzgara.DegerEkle(satir,sutun,1);
+                }
+                else
+                {
+                    kopyalanmisIzgara.DegerEkle(satir,sutun,0);
+                }
+            }
+        }
+    }
+    /*koyayi aslina tasiyalim*/
+    izgara= kopyalanmisIzgara;
 }

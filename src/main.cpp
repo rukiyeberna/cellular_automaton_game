@@ -17,11 +17,6 @@ int main()
     /*simulasyon objesi olusturup test edelim*/
     Simulasyon simulasyon(EKRAN_GENISLIGI,EKRAN_YUKSEKLIGI,HUCRE_BOYUTU);
 
-    simulasyon.DegerEkle(5,29,1);/*uc bir hücreyi aldim*/
-    simulasyon.DegerEkle(6,0,1);/*uc bir hücreyi aldim*/
-    simulasyon.DegerEkle(5,0,1);/*uc bir hücreyi aldim*/
-    simulasyon.DegerEkle(4,0,1);/*uc bir hücreyi aldim*/
-
 
     /*
       komsularim sinirda ise ne olur peki, bakalim
@@ -32,7 +27,6 @@ int main()
       izgara ya tanıtmak icin moduler aritmetikten yararlanalim
     */
 
-    std::cout << simulasyon.CanliKomsularimiSay(5,29) <<std::endl;
 
     /*simulasyon dongusu*/
 
