@@ -5,9 +5,9 @@
 int main()
 {   Color KAFAMAGORE = {34,16,41,255};
 
-    const int EKRAN_GENISLIGI = 1200;
-    const int EKRAN_YUKSEKLIGI = 800;
-    const int HUCRE_BOYUTU = 4;
+    const int EKRAN_GENISLIGI = 1000;
+    const int EKRAN_YUKSEKLIGI = 1000;
+    const int HUCRE_BOYUTU =10;
     
     int FPS =12;
 
@@ -34,7 +34,16 @@ int main()
     while(WindowShouldClose() == false)
     {
         // Olay gerçekleştirme
-
+        if(IsKeyPressed(KEY_ENTER))
+        {
+            simulasyon.Baslat();
+            SetWindowTitle("GAME OF LIFE STARTTT..........");
+        }
+        else if (IsKeyPressed(KEY_SPACE))
+        {
+            simulasyon.Bitir();
+            SetWindowTitle("GAME OF LIFE STOP..........");
+        }
         // Durum  Güncelleme
         simulasyon.Güncelle();
 
