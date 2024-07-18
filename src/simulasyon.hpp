@@ -10,7 +10,8 @@ class Simulasyon
         Simulasyon(int genislik, int yukseklik, int hucreBoyutu)
         /*Initializer list*/
         : izgara(genislik,yukseklik,hucreBoyutu),
-          kopyalanmisIzgara(genislik,yukseklik,hucreBoyutu)  
+          kopyalanmisIzgara(genislik,yukseklik,hucreBoyutu)  ,
+          calistir(false)
         {
             /*constructor ekleyelim*/
             izgara.RastgeleDoldur();
@@ -20,8 +21,12 @@ class Simulasyon
         int CanliKomsularimiSay(int satir,int sutun);
         /* simulasyonun durumunu oyun kurallarina göre guncellemekle sorumlu fonk --> Güncelle() */
         void Güncelle();
+        bool CalisiyorMu(){return calistir;}
+        void Baslat(){calistir = true;}
+        void Bitir(){calistir = false;}
     private:
         /*attribute ekleyelim*/
         Izgara izgara;
         Izgara kopyalanmisIzgara;
+        bool calistir;
 };      

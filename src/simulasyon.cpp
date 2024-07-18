@@ -54,41 +54,44 @@ int Simulasyon::CanliKomsularimiSay(int satir, int sutun)
 /*oyunun mantigini iceren fonksiyon*/
 void Simulasyon::Güncelle()
 {
-    /*oyun izgarasindaki her bir hucreyi kontrol edelim, nested loop gerekecek*/
-    for(int satir =0; satir< izgara.SatirlariAl();satir ++)
+    if(CalisiyorMu())
     {
-        for(int sutun =0; sutun<izgara.SutunlariAl();sutun ++)
+        /*oyun izgarasindaki her bir hucreyi kontrol edelim, nested loop gerekecek*/
+        for(int satir =0; satir< izgara.SatirlariAl();satir ++)
         {
-            int canliKomsular = CanliKomsularimiSay(satir,sutun);
-            int deger = izgara.DegerAl(satir,sutun);
+            for(int sutun =0; sutun<izgara.SutunlariAl();sutun ++)
+            {
+                int canliKomsular = CanliKomsularimiSay(satir,sutun);
+                int deger = izgara.DegerAl(satir,sutun);
 
-            /*kurallari implemente edelim*/
-            if(deger == 1)
-            {
-                /*olum gerceklesme durumu*/
-                if(canliKomsular>3 || canliKomsular<2)
+                /*kurallari implemente edelim*/
+                if(deger == 1)
                 {
-                    kopyalanmisIzgara.DegerEkle(satir,sutun,0);
-                }
-                /*else kismi ekledik cunku her bir hucre yenilenmeli*/
-                else
-                {
-                    kopyalanmisIzgara.DegerEkle(satir,sutun,1);
-                }
-            }
-            else
-            {
-                if(canliKomsular ==3)
-                {
-                    kopyalanmisIzgara.DegerEkle(satir,sutun,1);
+                    /*olum gerceklesme durumu*/
+                    if(canliKomsular>3 || canliKomsular<2)
+                    {
+                        kopyalanmisIzgara.DegerEkle(satir,sutun,0);
+                    }
+                    /*else kismi ekledik cunku her bir hucre yenilenmeli*/
+                    else
+                    {
+                        kopyalanmisIzgara.DegerEkle(satir,sutun,1);
+                    }
                 }
                 else
                 {
-                    kopyalanmisIzgara.DegerEkle(satir,sutun,0);
+                    if(canliKomsular ==3)
+                    {
+                        kopyalanmisIzgara.DegerEkle(satir,sutun,1);
+                    }
+                    else
+                    {
+                        kopyalanmisIzgara.DegerEkle(satir,sutun,0);
+                    }
                 }
             }
         }
+        /*koyayi aslina tasiyalim*/
+        izgara= kopyalanmisIzgara;
     }
-    /*koyayi aslina tasiyalim*/
-    izgara= kopyalanmisIzgara;
 }
